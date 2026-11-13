@@ -262,5 +262,21 @@
     "result": "Serial number 50216586. Services: electronic transfer of virtual currencies; providing financial information in the field of virtual currency; cryptocurrency payment processing. Fee $350, no surcharges.",
     "state": "Filed",
     "evidence": "USPTO serial 50216586; docs/trademark-filing.md"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The code and the ledger are public.",
+    "check": "A public GitHub repository, twimjakob1/sworn, was created and the contracts, the model, the tests, the broken-rule runs, the two attack runs and this ledger were pushed to it. The tests, the broken-rule runs and the ledger check were run in that copy before it was pushed.",
+    "result": "62 of 62 tests pass, 42 of 42 broken rules are caught and the ledger's chain of fingerprints is intact in the public copy. The legal read, the company's filings and the wallet notes stay private.",
+    "state": "Live",
+    "evidence": "https://github.com/twimjakob1/sworn"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The coin, the founder vault and the checker registry run on Ethereum's public test network.",
+    "check": "The four contracts were compiled with Solidity 0.8.38 from the public repository at commit a7b80cf and deployed on Sepolia from the founder wallet, which Jakob approved transaction by transaction in MetaMask. The registry was then bound to the coin. Each contract's source was submitted to Sourcify, and the deployed contracts were read back.",
+    "result": "All five transactions succeeded. Sourcify reports an exact match of creation and runtime code for all four contracts. Read back: the name Sworn, the ticker SWORN, 1,000,000,000 coins in all, 100,000,000 in the founder vault, 400,000,000 in the community pool and 500,000,000 in the distribution account; the registry names the coin, and the vault reads its usage count from the registry.",
+    "state": "Live",
+    "evidence": "https://github.com/twimjakob1/sworn/blob/main/deployments/sepolia.json; https://sepolia.etherscan.io/address/0x284F91dB477C3Be70B67119c9791BF05cB3c46AA"
   }
 ]

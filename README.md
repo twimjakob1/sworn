@@ -57,7 +57,7 @@ The blockchain code runs in a browser page. `tools/practice-chain.browser.js` an
 | Rules broken on purpose in the model | 42 of 42 caught |
 | Coin and founder vault on a practice chain | 37 of 37 checks pass; 23 of 23 broken rules caught |
 | Checker registry on a practice chain | 52 of 52 checks pass; 30 of 30 broken rules caught |
-| Ledger | 32 entries, 7 of them failed checks, chain of fingerprints intact |
+| Ledger | 35 entries, 7 of them failed checks, chain of fingerprints intact |
 
 ## What Has Not Been Done
 
