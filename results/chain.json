@@ -1,0 +1,520 @@
+{
+  "ranAt": "2026-11-13T16:34:45.082Z",
+  "where": "A page on app.remix.live in Chrome 154",
+  "compiler": "0.8.38",
+  "compilerBuild": "commit 1835d247, from binaries.soliditylang.org",
+  "practiceChain": "@ethereumjs/evm, run inside the page",
+  "messages": [],
+  "source": {
+    "file": "contracts/Coin.sol",
+    "sha256": "f1c14950847a4b333b03239369720786784b2084e257f847c561a0d714d6ca1b"
+  },
+  "script": {
+    "file": "tools/practice-chain.browser.js",
+    "sha256": "29b5f2729a8e849b5597a89e48fde866f0d437cc331b72aa36a5b6eed00944ec"
+  },
+  "runner": {
+    "file": "tools/faults.browser.js",
+    "sha256": "a51f3c2261a5410f34bd4a5552112ecb13f8bd994c03d8d59915eb22496f1740"
+  },
+  "matched": "The source, the script, the runner and the list of broken rules were each matched to a SHA-256 inside the page before the run.",
+  "codeSizeInBytes": {
+    "Coin": 7523,
+    "FounderVault": 5221,
+    "PracticeUsage": 255
+  },
+  "baseline": {
+    "passed": 37,
+    "total": 37,
+    "steps": [
+      {
+        "name": "usage counter deploys",
+        "pass": true,
+        "got": "deployed"
+      },
+      {
+        "name": "coin deploys and creates its founder vault",
+        "pass": true,
+        "got": "deployed"
+      },
+      {
+        "name": "total supply is 1 billion coins",
+        "pass": true,
+        "got": "1000000000000000000000000000"
+      },
+      {
+        "name": "founder vault starts with 10%",
+        "pass": true,
+        "got": "100000000000000000000000000"
+      },
+      {
+        "name": "community pool starts with 40%",
+        "pass": true,
+        "got": "400000000000000000000000000"
+      },
+      {
+        "name": "distribution starts with 50%",
+        "pass": true,
+        "got": "500000000000000000000000000"
+      },
+      {
+        "name": "notice refused during the lock",
+        "pass": true,
+        "got": "date not reached"
+      },
+      {
+        "name": "notice refused without the usage milestone",
+        "pass": true,
+        "got": "usage milestone not met"
+      },
+      {
+        "name": "500 checks recorded",
+        "pass": true,
+        "got": "ok"
+      },
+      {
+        "name": "notice refused from a stranger",
+        "pass": true,
+        "got": "founder only"
+      },
+      {
+        "name": "founder gives notice once date and milestone are met",
+        "pass": true,
+        "got": "ok"
+      },
+      {
+        "name": "release refused before 30 days of notice",
+        "pass": true,
+        "got": "notice period running"
+      },
+      {
+        "name": "slice 1 released after the notice",
+        "pass": true,
+        "got": "ok"
+      },
+      {
+        "name": "founder received exactly one slice",
+        "pass": true,
+        "got": "2777777777777777777777777"
+      },
+      {
+        "name": "vault balance fell by one slice",
+        "pass": true,
+        "got": "97222222222222222222222223"
+      },
+      {
+        "name": "slice 1 cannot be released twice",
+        "pass": true,
+        "got": "no notice for this slice"
+      },
+      {
+        "name": "slices cannot be skipped",
+        "pass": true,
+        "got": "wrong slice"
+      },
+      {
+        "name": "an account cannot spend more than it has",
+        "pass": true,
+        "got": "balance too low"
+      },
+      {
+        "name": "a transfer moves coins",
+        "pass": true,
+        "got": "1000"
+      },
+      {
+        "name": "coins cannot be locked with no notice open",
+        "pass": true,
+        "got": "no notice open"
+      },
+      {
+        "name": "founder gives notice for slice 2",
+        "pass": true,
+        "got": "ok"
+      },
+      {
+        "name": "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "pass": true,
+        "got": "1000000000000000001000"
+      },
+      {
+        "name": "the founder has no vote on its own release",
+        "pass": true,
+        "got": "no vote"
+      },
+      {
+        "name": "an owner locks coins against the release",
+        "pass": true,
+        "got": "100000000000000000000"
+      },
+      {
+        "name": "locked coins stay locked while the notice runs",
+        "pass": true,
+        "got": "notice period running"
+      },
+      {
+        "name": "locked coins reaching 20% block the release",
+        "pass": true,
+        "got": "0"
+      },
+      {
+        "name": "a vetoed slice is not paid",
+        "pass": true,
+        "got": "no notice for this slice"
+      },
+      {
+        "name": "locked coins return after the veto",
+        "pass": true,
+        "got": "300000000000000000000"
+      },
+      {
+        "name": "locked coins return once only",
+        "pass": true,
+        "got": "nothing locked"
+      },
+      {
+        "name": "the founder can give notice again after a veto",
+        "pass": true,
+        "got": "ok"
+      },
+      {
+        "name": "locked coins under 20% leave the notice standing",
+        "pass": true,
+        "got": "2"
+      },
+      {
+        "name": "coins cannot be locked after the 30 days",
+        "pass": true,
+        "got": "no notice open"
+      },
+      {
+        "name": "slice 2 is paid after a notice with no veto",
+        "pass": true,
+        "got": "2777777777777777777777777"
+      },
+      {
+        "name": "every locked coin is returned and the vault is short exactly two slices",
+        "pass": true,
+        "got": "94444444444444444444444446"
+      },
+      {
+        "name": "no function creates, destroys, freezes or replaces",
+        "pass": true,
+        "got": "(the list of function names, omitted here)"
+      },
+      {
+        "name": "the coin is named Sworn",
+        "pass": true,
+        "got": "Sworn"
+      },
+      {
+        "name": "the ticker is SWORN",
+        "pass": true,
+        "got": "SWORN"
+      }
+    ]
+  },
+  "faultList": {
+    "file": "tools/chain-faults.json",
+    "sha256": "8dbb851577d8fa100154560b8e20d98885e1598364503fce9451e4fef937400e"
+  },
+  "faultsRanAt": "2026-11-13T16:35:43.860Z",
+  "faultsInjected": 23,
+  "faultsCaught": 23,
+  "faults": [
+    {
+      "rule": "The founder vault observes the 12-month lock",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "notice refused during the lock"
+      ]
+    },
+    {
+      "rule": "The founder vault requires the usage milestone",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "notice refused without the usage milestone",
+        "founder gives notice once date and milestone are met"
+      ]
+    },
+    {
+      "rule": "Only the founder can start a notice",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "notice refused from a stranger",
+        "founder gives notice once date and milestone are met"
+      ]
+    },
+    {
+      "rule": "The founder vault waits out the 30-day notice",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "release refused before 30 days of notice",
+        "slice 1 released after the notice"
+      ]
+    },
+    {
+      "rule": "A slice is paid once",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "slice 1 cannot be released twice",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto"
+      ]
+    },
+    {
+      "rule": "Slices are paid in order",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "slices cannot be skipped"
+      ]
+    },
+    {
+      "rule": "An account cannot spend more than it has",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "an account cannot spend more than it has",
+        "a transfer moves coins",
+        "founder gives notice for slice 2",
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "the founder has no vote on its own release",
+        "an owner locks coins against the release",
+        "locked coins stay locked while the notice runs",
+        "locked coins reaching 20% block the release",
+        "locked coins return after the veto",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "The supply is 1 billion coins",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "total supply is 1 billion coins",
+        "founder vault starts with 10%",
+        "community pool starts with 40%",
+        "distribution starts with 50%",
+        "founder received exactly one slice",
+        "vault balance fell by one slice",
+        "an account cannot spend more than it has",
+        "a transfer moves coins",
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "The founder share is 10%",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "founder vault starts with 10%",
+        "distribution starts with 50%",
+        "founder received exactly one slice",
+        "vault balance fell by one slice",
+        "an account cannot spend more than it has",
+        "a transfer moves coins",
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "The community pool share is 40%",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "community pool starts with 40%",
+        "distribution starts with 50%"
+      ]
+    },
+    {
+      "rule": "Each slice is one thirty-sixth of the founder share",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "founder received exactly one slice",
+        "vault balance fell by one slice",
+        "an account cannot spend more than it has",
+        "a transfer moves coins",
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "The coin has no function that creates coins",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "no function creates, destroys, freezes or replaces"
+      ]
+    },
+    {
+      "rule": "The coin's name is Sworn",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "the coin is named Sworn"
+      ]
+    },
+    {
+      "rule": "The coin's ticker is SWORN",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "the ticker is SWORN"
+      ]
+    },
+    {
+      "rule": "The founder has no vote on its own release",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "the founder has no vote on its own release",
+        "an owner locks coins against the release",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "Locked coins reaching 20% block the release",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto"
+      ]
+    },
+    {
+      "rule": "A vetoed notice is cleared",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto"
+      ]
+    },
+    {
+      "rule": "Locked coins stay locked while the notice runs",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "locked coins stay locked while the notice runs",
+        "locked coins return after the veto"
+      ]
+    },
+    {
+      "rule": "Locked coins return once only",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "locked coins return once only",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "Coins that can vote exclude the distribution account",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto"
+      ]
+    },
+    {
+      "rule": "Coins that can vote exclude the founder",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "coins that can vote exclude the founder, the vault, the pool and the distribution account",
+        "locked coins reaching 20% block the release",
+        "a vetoed slice is not paid",
+        "the founder can give notice again after a veto",
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto"
+      ]
+    },
+    {
+      "rule": "Coins can be locked only during the 30 days of notice",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "coins cannot be locked after the 30 days",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    },
+    {
+      "rule": "Each new notice starts its veto count at zero",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 37,
+      "failingChecks": [
+        "locked coins under 20% leave the notice standing",
+        "slice 2 is paid after a notice with no veto",
+        "every locked coin is returned and the vault is short exactly two slices"
+      ]
+    }
+  ],
+  "earlierRun": "The run of November 12, 2026 covered the coin and vault before the owner veto: 22 of 22 checks passed and 14 of 14 broken rules were caught. Its results are in the repository history at commit 85e0865. The first run, on November 12, 2026 at 12:13 AM Eastern, covered the code under its practice name: 20 of 20 checks passed and 12 of 12 broken rules were caught. Its results are in the repository history at commit eab2da1.",
+  "limits": [
+    "The veto on the chain locks coins during the notice. The model counts balances from a snapshot. Both block a release at 20% of the coins outside the founder, the vault, the community pool and the distribution account.",
+    "Coins sitting in the registry as stakes, fees or bonds count toward the coins that can vote and cannot themselves be locked, which makes a veto harder to reach by that amount."
+  ]
+}

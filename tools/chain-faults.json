@@ -1,0 +1,117 @@
+[
+ {
+  "rule": "The founder vault observes the 12-month lock",
+  "find": "require(block.timestamp >= opensAt(n), \"date not reached\");",
+  "replace": ""
+ },
+ {
+  "rule": "The founder vault requires the usage milestone",
+  "find": "require(usage.independentChecks() >= checksNeeded(n), \"usage milestone not met\");",
+  "replace": ""
+ },
+ {
+  "rule": "Only the founder can start a notice",
+  "find": "require(msg.sender == founder, \"founder only\");",
+  "replace": ""
+ },
+ {
+  "rule": "The founder vault waits out the 30-day notice",
+  "find": "require(block.timestamp >= noticeGivenAt + NOTICE, \"notice period running\");",
+  "replace": ""
+ },
+ {
+  "rule": "A slice is paid once",
+  "find": "require(n != 0 && noticeSlice == n, \"no notice for this slice\");",
+  "replace": "require(n != 0, \"no notice for this slice\");"
+ },
+ {
+  "rule": "Slices are paid in order",
+  "find": "require(n >= 1 && n <= SLICES && n == slicesReleased + 1, \"wrong slice\");",
+  "replace": "require(n >= 1 && n <= SLICES, \"wrong slice\");"
+ },
+ {
+  "rule": "An account cannot spend more than it has",
+  "find": "require(balance >= value, \"balance too low\");",
+  "replace": ""
+ },
+ {
+  "rule": "The supply is 1 billion coins",
+  "find": "uint256 public constant totalSupply = 1_000_000_000 * 10 ** 18;",
+  "replace": "uint256 public constant totalSupply = 2_000_000_000 * 10 ** 18;"
+ },
+ {
+  "rule": "The founder share is 10%",
+  "find": "uint256 founderShare = totalSupply / 10;",
+  "replace": "uint256 founderShare = totalSupply / 5;"
+ },
+ {
+  "rule": "The community pool share is 40%",
+  "find": "uint256 poolShare = (totalSupply * 4) / 10;",
+  "replace": "uint256 poolShare = (totalSupply * 5) / 10;"
+ },
+ {
+  "rule": "Each slice is one thirty-sixth of the founder share",
+  "find": "uint256 base = share / SLICES;",
+  "replace": "uint256 base = share / 12;"
+ },
+ {
+  "rule": "The coin has no function that creates coins",
+  "find": "function transfer(address to, uint256 value) external returns (bool) {",
+  "replace": "function mint(address to, uint256 value) external { balanceOf[to] += value; }\n    function transfer(address to, uint256 value) external returns (bool) {"
+ },
+ {
+  "rule": "The coin's name is Sworn",
+  "find": "string public constant name = \"Sworn\";",
+  "replace": "string public constant name = \"Sworn Coin\";"
+ },
+ {
+  "rule": "The coin's ticker is SWORN",
+  "find": "string public constant symbol = \"SWORN\";",
+  "replace": "string public constant symbol = \"SWRN\";"
+ },
+ {
+  "rule": "The founder has no vote on its own release",
+  "find": "require(msg.sender != founder && msg.sender != communityPool && msg.sender != distribution, \"no vote\");",
+  "replace": ""
+ },
+ {
+  "rule": "Locked coins reaching 20% block the release",
+  "find": "uint256 public constant VETO_PCT = 20;",
+  "replace": "uint256 public constant VETO_PCT = 90;"
+ },
+ {
+  "rule": "A vetoed notice is cleared",
+  "find": "emit ReleaseVetoed(noticeSlice, vetoWeight, votingSupply);\n            noticeSlice = 0;",
+  "replace": "emit ReleaseVetoed(noticeSlice, vetoWeight, votingSupply);"
+ },
+ {
+  "rule": "Locked coins stay locked while the notice runs",
+  "find": "require(!open, \"notice period running\");",
+  "replace": ""
+ },
+ {
+  "rule": "Locked coins return once only",
+  "find": "lockedOf[notice][msg.sender] = 0;",
+  "replace": ""
+ },
+ {
+  "rule": "Coins that can vote exclude the distribution account",
+  "find": " - coin.balanceOf(distribution);",
+  "replace": ";"
+ },
+ {
+  "rule": "Coins that can vote exclude the founder",
+  "find": " - coin.balanceOf(founder)",
+  "replace": ""
+ },
+ {
+  "rule": "Coins can be locked only during the 30 days of notice",
+  "find": "require(noticeSlice != 0 && block.timestamp < noticeGivenAt + NOTICE, \"no notice open\");",
+  "replace": "require(noticeSlice != 0, \"no notice open\");"
+ },
+ {
+  "rule": "Each new notice starts its veto count at zero",
+  "find": "        vetoWeight = 0;\n",
+  "replace": ""
+ }
+]

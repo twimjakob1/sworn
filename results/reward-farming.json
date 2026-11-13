@@ -1,0 +1,14 @@
+{
+  "ranAt": "2026-11-13T19:05:48.673Z",
+  "node": "22.23.4",
+  "statement": "Cooperating accounts gain nothing from checks that involve no real work.",
+  "rounds": 100,
+  "feePerCheck": 20,
+  "coinsLostByTheThreeAccounts": 400,
+  "coinsAddedToPool": 400,
+  "stakeReturnedInFull": true,
+  "dollarsLostInCents": 0,
+  "checksAddedToFounderMilestone": 100,
+  "coinsPaidPerCheckAddedToMilestone": 4,
+  "statementStands": true
+}

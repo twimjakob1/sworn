@@ -1,0 +1,13 @@
+{
+  "name": "sworn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sworn: a coin for proving that a claim is true. The tested model, the blockchain code and the record of every check.",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test test/model.test.js",
+    "verify": "node tools/inject.js",
+    "ledger": "node tools/check-ledger.js"
+  }
+}

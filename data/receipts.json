@@ -1,0 +1,258 @@
+[
+  {
+    "date": "2026-11-11",
+    "claim": "The working model enforces every rule of the coin, the founder vault, the checker registry and the receipt ledger.",
+    "check": "41 automated tests, run on Node 22 in the build workspace.",
+    "result": "41 of 41 pass.",
+    "state": "Tested",
+    "evidence": "code/test/model.test.js; results in code/results/verification.json"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The tests detect a broken rule.",
+    "check": "18 rules were broken one at a time in a copy of the model, and the tests were run against each copy.",
+    "result": "18 of 18 broken rules were caught.",
+    "state": "Tested",
+    "evidence": "code/tools/inject.js; results in code/results/verification.json"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The report card grades real coins from public data.",
+    "check": "Five Ethereum coins were read live from the GoPlus public feed in the built-in browser at 04:15 UTC on November 12, 2026, and graded by the tested report card code.",
+    "result": "Five report cards produced: USDC, SHIB, LINK, UNI, PEPE.",
+    "state": "Tested",
+    "evidence": "code/data/live-2026-11-12.json; code/results/reportcards.json"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The scanner's reading of Uniswap's supply is correct.",
+    "check": "The scanner's answer was compared with Uniswap's own governance forum.",
+    "result": "Wrong. The scanner reports a fixed supply; Uniswap states its DAO may create up to 2% a year. The card was corrected and both readings are recorded.",
+    "state": "Failed",
+    "evidence": "https://gov.uniswap.org/t/understanding-the-uniswap-dao-mint-function/24947"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The scanner can read a coin whose code can be replaced.",
+    "check": "USDC was read from the same feed.",
+    "result": "Four of five answers came back unread. The report card reported them as unread.",
+    "state": "Failed",
+    "evidence": "code/data/live-2026-11-12.json"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The first pool rule and the first freeze rule fit real coins.",
+    "check": "Both rules were applied to the five live readings.",
+    "result": "Both misread mature coins. The rules were revised, two tests were added, and the full suite and all 18 fault checks were rerun.",
+    "state": "Fixed",
+    "evidence": "code/model/reportcard.js"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The coin and founder vault code for a blockchain compiles and runs on a practice chain.",
+    "check": "A compile was attempted in the built-in browser.",
+    "result": "The compile did not run. Remix moved to app.remix.live, an address outside the approved sites. The code is written and unproven.",
+    "state": "Written",
+    "evidence": "code/contracts/Coin.sol, SHA-256 66a6aab269574793da3ba873ed79dadf2730ba86f872142597ad4dce68206f61"
+  },
+  {
+    "date": "2026-11-11",
+    "claim": "The nightly run retests the model and updates this record on its own.",
+    "check": "The scheduled task was created and fired once by hand at 11:29 PM Eastern.",
+    "result": "The run ended after 60 seconds and changed nothing in this record. The cause is undetermined; its own session could not be read from the build session.",
+    "state": "Failed",
+    "evidence": "Scheduled task \"Proof of Done nightly record\"; record version unchanged at 1794457644-cecf"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The coin and founder vault code for a blockchain compiles and runs on a practice chain.",
+    "check": "The code was compiled with Solidity 0.8.38 in a page on app.remix.live in Chrome at 12:13 AM Eastern on November 12, 2026, and the 20-check practice-chain script was run against it. The fingerprints of the code and of the script were confirmed against the stored files before the run.",
+    "result": "Compiled with no warnings. 20 of 20 checks passed.",
+    "state": "Tested",
+    "evidence": "code/results/chain.json; code/tools/practice-chain.browser.js"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The practice-chain checks detect a broken rule.",
+    "check": "12 rules were broken one at a time in a copy of the blockchain code. Each copy was compiled and run through the same 20 checks.",
+    "result": "12 of 12 broken rules were caught.",
+    "state": "Tested",
+    "evidence": "code/tools/chain-faults.json; results in code/results/chain.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The code and the record are stored in a private GitHub repository that scheduled runs can reach.",
+    "check": "The repository twimjakob1/proof-of-done was created through Chrome on November 12, 2026 with its visibility set to Private. The first commit was pushed and the repository was read back.",
+    "result": "GitHub shows the main branch at commit eab2da1, the fingerprint of the commit that was pushed.",
+    "state": "Tested",
+    "evidence": "https://github.com/twimjakob1/proof-of-done/commit/eab2da128b513abf6a40a367c189963998b0aab8"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "Tonight's live reading ran.",
+    "check": "The nightly run looked for a browser among its tools at 1:09 AM Eastern on November 12, 2026.",
+    "result": "It did not run: this run had no browser.",
+    "state": "Failed",
+    "evidence": "code/data/nightly.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "Tonight's live reading ran.",
+    "check": "The nightly run looked for a browser among its tools at 3:42 AM Eastern on November 12, 2026.",
+    "result": "It did not run: this run had no browser.",
+    "state": "Failed",
+    "evidence": "code/data/nightly.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The nightly retest runs on its own and saves its results to the repository.",
+    "check": "The first failure was traced by reading that run's own session: scheduled runs have no tools for the record page. The run was pointed at the GitHub repository and fired by hand at 1:08 AM Eastern on November 12, 2026. The scheduled run then fired by itself at 3:41 AM.",
+    "result": "Both runs passed 41 of 41 tests, caught 18 of 18 broken rules and pushed a commit: 6425908 at 1:09 AM and de03882 at 3:43 AM. An attempt at 12:45 AM failed because the repository was attached to no scheduled task; the task was created again with the repository attached.",
+    "state": "Fixed",
+    "evidence": "https://github.com/twimjakob1/proof-of-done/commit/de03882adee6051a39f64d90857a70fa8942060e"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The report card graded 3 more coins from live public data.",
+    "check": "Tether (USDT), Dai (DAI) and Wrapped Bitcoin (WBTC) were read from the GoPlus public token security feed in a browser at 8:33 AM Eastern on November 12, 2026. Each returned symbol matched the coin sought.",
+    "result": "Tether: 1 clear, 3 concern, 1 unread. Dai: 2 clear, 1 concern, 2 unread. Wrapped Bitcoin: 2 clear, 3 concern, 0 unread.",
+    "state": "Tested",
+    "evidence": "code/data/live-2026-11-12b.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The name Sworn and the ticker SWORN are free for this coin.",
+    "check": "Two web searches for a coin or token named Sworn, and a search for SWORN in the USPTO's own trademark search tool, read in the built-in browser on November 12, 2026.",
+    "result": "No coin or token named Sworn was found. The USPTO lists 55 records containing the word. Four are the single word SWORN: one live, for worker-readiness software in class 042, and three dead. The financial class, 036, has one record, and it is dead. Jakob accepted the name the same day.",
+    "state": "Tested",
+    "evidence": "code/data/decision-name.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "A checker's reward is collected only for real work.",
+    "check": "In the tested model, three cooperating accounts posted a claim that is trivially true, checked it and settled it, 100 times.",
+    "result": "Wrong. The three accounts took 1,000 coins from the community pool, recovered their full stake, lost no dollars, and added 100 checks to the founder's usage milestone. Posting a claim costs nothing once the bond returns.",
+    "state": "Failed",
+    "evidence": "code/tools/reward-farming.js; results in code/results/reward-farming.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The repository and the record page carry one ledger.",
+    "check": "Two working sessions added receipts on November 12, 2026, one to the repository and one to the record page. The two sets were joined in the order they were made, and every fingerprint was recomputed.",
+    "result": "One ledger of 17 receipts. The name receipt and the reward receipt, first published on the page as 11 and 12, are now 16 and 17. The words of every receipt are unchanged.",
+    "state": "Fixed",
+    "evidence": "code/data/receipts.json; https://github.com/twimjakob1/proof-of-done/commits/main"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The blockchain code carries the name Sworn and the ticker SWORN.",
+    "check": "The name and the ticker were changed in the code. The code was compiled again with Solidity 0.8.38 in a page on app.remix.live in Chrome at 11:38 AM Eastern on November 12, 2026, and the practice-chain script was run against it. The script now has 22 checks; the two new ones read the name and the ticker from the practice chain. The fingerprints of the code and of the script were confirmed against the stored files before the run.",
+    "result": "Compiled with no warnings. 22 of 22 checks passed. The practice chain returned the name Sworn and the ticker SWORN. The first 20 results match the earlier run exactly. That earlier run covered the code under its practice name and is retired.",
+    "state": "Tested",
+    "evidence": "code/results/chain.json; code/contracts/Coin.sol.txt, SHA-256 e78656e9e590f555055004fd563fa99274e862b17e58d5652c6e36b20a274129"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The practice-chain checks detect a broken rule in the renamed code.",
+    "check": "14 rules were broken one at a time in a copy of the code: the 12 from the first run, plus the name and the ticker. Each copy was compiled and run through the same 22 checks.",
+    "result": "14 of 14 broken rules were caught.",
+    "state": "Tested",
+    "evidence": "code/tools/chain-faults.json; results in code/results/chain.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "A posted claim carries a fee in Sworn that pays the checker and the community pool, and the pool pays nothing for a check.",
+    "check": "Jakob chose the fee on November 12, 2026. The rule was written into the model: a minimum fee of 20 coins; four fifths to the checker whose finding stands, or to the challenger who overturns it; one fifth to the community pool; and withdrawal of a claim that no checker takes up within 30 days. The registry was rebuilt without the pool's key. 8 tests were added and 10 more rules were broken on purpose.",
+    "result": "49 of 49 tests pass. 28 of 28 broken rules were caught.",
+    "state": "Tested",
+    "evidence": "code/model/registry.js; code/test/model.test.js; results in code/results/verification.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "Cooperating accounts gain nothing from checks that involve no real work.",
+    "check": "The run behind receipt 17 was repeated under the fee rule: three cooperating accounts posted a claim that is trivially true, checked it and settled it, 100 times.",
+    "result": "The statement stands. The three accounts ended 400 coins poorer and the community pool 400 coins richer. Each such check still adds one to the founder's usage milestone, now at a cost of 4 coins.",
+    "state": "Fixed",
+    "evidence": "code/tools/reward-farming.js; results in code/results/reward-farming.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "An issuer can put coins behind a statement about its own coin for a stated term, and a statement shown false during the term forfeits them.",
+    "check": "The rule was written into the model: a bond of at least 10,000 coins, a term of 30 to 365 days, a first check by a staked checker, reports by anyone during the term with a 100-coin report bond, one fifth of a forfeited bond to the reporter and four fifths to the community pool, and return of the bond after a term the statement stood through. 12 tests were added, the 5,000-action random run was extended to statements, reports and closings, and 13 more rules were broken on purpose.",
+    "result": "61 of 61 tests pass. 41 of 41 broken rules were caught. Escrow equaled stakes plus fees plus bonds after every one of the 5,000 actions.",
+    "state": "Tested",
+    "evidence": "code/model/registry.js; code/model/params.js; code/test/model.test.js; code/tools/inject.js"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "A checker whose finding was true when it was made loses nothing if the system changes afterward.",
+    "check": "One person ran two accounts. The first posted a sworn statement that was true. An honest checker with 1,000,000 coins at stake read the system and recorded \"true.\" The person then changed the system and had the second account challenge the finding inside the 7-day window.",
+    "result": "The statement failed. The challenge reread the system as it stood that day and overturned a finding that had been true when made. The honest checker lost 500,000 coins. The two cooperating accounts gained 249,996, the community pool gained 250,004, and the sworn statement ended as refused with its bond returned. The same opening existed for claims about finished work.",
+    "state": "Failed",
+    "evidence": "code/tools/checker-trap.js, first run on November 12, 2026 at 17:19 UTC"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "A finding is judged against the system as it stood on the day the finding was made.",
+    "check": "The challenge rule was changed to read the system as of the day of the finding. A report against a sworn statement in force reads the system on the day of the report. One test and one broken-rule run were added, and the run behind the previous receipt was repeated.",
+    "result": "62 of 62 tests pass. 42 of 42 broken rules were caught. In the repeated run the challenge failed, the honest checker ended 116 coins ahead, the two cooperating accounts ended 10,120 coins behind, and the changed statement was reported, recorded as broken and forfeited its bond: 2,000 coins to the reporter and 8,000 to the community pool.",
+    "state": "Fixed",
+    "evidence": "code/model/registry.js; code/test/model.test.js; results in code/results/checker-trap.json and code/results/verification.json"
+  },
+  {
+    "date": "2026-11-12",
+    "claim": "The launch rules follow the published federal texts in force on November 12, 2026.",
+    "check": "The SEC interpretation of March 17, 2026 was read in full from the Federal Register. FinCEN guidance FIN-2019-G001 was read from FinCEN. IRS Revenue Ruling 2023-14, summaries of the GENIUS Act, the Senate record on the CLARITY Act, reports of the Justice Department's March 2026 charges and Tennessee company costs were read from the sources listed in the document.",
+    "result": "The read sets six rules: a working system with no owner key before any coin reaches the public, no sale by the project, public statements limited to what exists and what the tests show, no custody of another party's coins or dollars, founder sales on the published schedule, and no paid volume or promotion. Six points are marked unsettled. The earlier working line for the free distribution, coins released against proven use, conflicts with the SEC's treatment of distributions given for tasks and is marked for redesign. The dollar-bond service stays out of the launch.",
+    "state": "Written",
+    "evidence": "code/docs/legal-read.md"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The report card graded 2 more coins from live public data.",
+    "check": "Aave (AAVE), Maker (MKR) and Lido DAO (LDO) were read from the GoPlus public token security feed in a browser at 4:12 AM Eastern on November 13, 2026. The returned symbols for Aave and Lido DAO matched the coins sought. The feed returned a blank symbol for Maker, and Maker was dropped. The feed reports a fixed supply for Lido DAO; Lido's launch announcement and its token guide were read, and neither describes a way to create new LDO.",
+    "result": "Aave: 1 clear, 1 concern, 3 unread. Lido DAO: 3 clear, 2 concern, 0 unread.",
+    "state": "Tested",
+    "evidence": "code/data/live-2026-11-13.json"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The registry and sworn statements work as blockchain code on a practice chain.",
+    "check": "contracts/Registry.sol was compiled with Solidity 0.8.38 beside contracts/Coin.sol, deployed to a practice chain inside a browser page, and put through 51 checks. Each file was matched to its fingerprint inside the page before the run. The first compile failed and one check was written wrong; both are described in the results file.",
+    "result": "51 of 51 checks pass, with no compiler warnings. The broken-rule runs have not been run against this contract.",
+    "state": "Tested",
+    "evidence": "code/results/registry-chain.json"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "Coin owners can block a founder release from the blockchain code.",
+    "check": "The owner veto was written into the founder vault in contracts/Coin.sol: during the 30-day notice, owners lock coins against the release. The file was compiled with Solidity 0.8.38 and run on a practice chain in a browser page. Then 23 rules were broken one at a time, 9 of them veto rules, and the checks were rerun against each broken copy.",
+    "result": "37 of 37 checks pass. 23 of 23 broken rules were caught. The chain locks coins where the model counts balances from a snapshot; the 20% threshold is the same.",
+    "state": "Tested",
+    "evidence": "code/results/chain.json"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The registry's checks detect a broken rule.",
+    "check": "The registry was rerun beside the new coin code with one added check, the 7-day limit on challenges. Then 30 rules in contracts/Registry.sol were broken one at a time and the checks were rerun against each broken copy.",
+    "result": "52 of 52 checks pass. 30 of 30 broken rules were caught.",
+    "state": "Tested",
+    "evidence": "code/results/registry-chain.json"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The project has an owner of record.",
+    "check": "Jakob chose VitalEdge and its tax ID, with Sworn as a Tennessee assumed name. The legal read was updated: an assumed name creates no separate company, so the two share contracts and liabilities.",
+    "result": "Decision recorded. The assumed-name filing and the trademark application are still to be filed.",
+    "state": "Written",
+    "evidence": "code/docs/legal-read.md"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "SWORN is a registered assumed name of VITALEDGE, LLC in Tennessee.",
+    "check": "Jakob filed the assumed-name registration with the Tennessee Secretary of State and paid the $20 fee at 11:27 AM Eastern (filing reference B2026829670). He then searched the state's business records by control number 001611733 and sent a screenshot of the result.",
+    "result": "The state's record shows VITALEDGE, LLC, active, formed in Tennessee on January 9, 2025, with ASSUMED NAME: SWORN under other names used.",
+    "state": "Live",
+    "evidence": "Tennessee Secretary of State business entity search, control number 001611733"
+  }
+]

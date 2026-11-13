@@ -1,0 +1,510 @@
+{
+  "ranAt": "2026-11-13T16:36:53.617Z",
+  "where": "A page on app.remix.live in Chrome 154",
+  "compiler": "0.8.38",
+  "compilerBuild": "commit 1835d247, from binaries.soliditylang.org",
+  "practiceChain": "@ethereumjs/evm, run inside the page",
+  "messages": [],
+  "sources": [
+    {
+      "file": "contracts/Coin.sol",
+      "sha256": "f1c14950847a4b333b03239369720786784b2084e257f847c561a0d714d6ca1b"
+    },
+    {
+      "file": "contracts/Registry.sol",
+      "sha256": "ce73ac7eb310aaa9886ffcb9a533d2aa62f64f7ad40219298baa2a1546905c13"
+    }
+  ],
+  "script": {
+    "file": "tools/practice-registry.browser.js",
+    "sha256": "5c24894f2e02e27e65f85332ad7cb4db85cc71b53a69a1a6af95d377fa26aa00"
+  },
+  "runner": {
+    "file": "tools/faults.browser.js",
+    "sha256": "a51f3c2261a5410f34bd4a5552112ecb13f8bd994c03d8d59915eb22496f1740"
+  },
+  "matched": "Each source, the script, the runner and the list of broken rules were matched to a SHA-256 inside the page before the run.",
+  "codeSizeInBytes": {
+    "Registry": 9964,
+    "PracticeSystem": 614,
+    "PracticeSilentSystem": 237
+  },
+  "passed": 52,
+  "total": 52,
+  "checks": [
+    "registry deploys",
+    "coin deploys with the registry as its usage counter",
+    "the founder vault reads its usage count from the registry",
+    "a stranger cannot name the coin",
+    "the deployer names the coin",
+    "the coin cannot be named twice",
+    "a stake under 10,000 coins is refused",
+    "a checker registers with 10,000 coins",
+    "a fee under 20 coins is refused",
+    "a claim is posted and its fee is in escrow",
+    "a party to the claim cannot check it",
+    "an account with no stake cannot check",
+    "a claim cannot be withdrawn before 30 days",
+    "a finding needs evidence",
+    "a checker records a finding",
+    "a checker with unfinished checks cannot unstake",
+    "a check cannot close inside the 7-day window",
+    "a checker cannot challenge its own finding",
+    "a failed challenge pays the 100-coin bond to the checker",
+    "closing pays the checker 16 coins and the pool 4",
+    "one independent check is counted",
+    "a closed check cannot be challenged",
+    "a false finding costs the checker half its stake",
+    "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+    "an overturned finding cannot be challenged again",
+    "the fee on an overturned finding pays the challenger",
+    "an overturned finding adds no independent check",
+    "a checker under 10,000 coins of stake cannot check",
+    "a checker restores its stake",
+    "a finding true on its day stands after the system changes",
+    "a system that refuses to answer reads false",
+    "a finding cannot be challenged after 7 days",
+    "only the poster can withdraw a claim",
+    "an unchecked claim returns its fee after 30 days",
+    "a check on a founder-linked claim adds no independent check",
+    "a statement bond under 10,000 coins is refused",
+    "a term under 30 days is refused",
+    "a term over 365 days is refused",
+    "a sworn statement is posted and its bond is in escrow",
+    "a statement cannot be reported before it is in force",
+    "a statement that reads true goes in force",
+    "a report on a statement that still reads true pays 100 coins to the issuer",
+    "a statement cannot be closed during its term",
+    "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool",
+    "a broken statement cannot be reported again",
+    "a statement cannot be reported after its term",
+    "a statement that stood through its term returns its bond",
+    "a statement that reads false is refused and its bond returns",
+    "a checker with no unfinished checks takes its stake back",
+    "the registry balance equals stakes plus fees plus bonds",
+    "the pool only gained",
+    "no function creates, destroys, freezes, pauses or replaces"
+  ],
+  "faultList": {
+    "file": "tools/registry-faults.json",
+    "sha256": "4683b67a968fd9fa7ace1f125281400d9659ddb2df5cf576902b37fae14541ce"
+  },
+  "faultsRanAt": "2026-11-13T16:38:31.787Z",
+  "faultsInjected": 30,
+  "faultsCaught": 30,
+  "faults": [
+    {
+      "rule": "A checker posts at least 10,000 coins",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a stake under 10,000 coins is refused",
+        "a checker registers with 10,000 coins",
+        "a finding needs evidence",
+        "a checker records a finding",
+        "a checker with unfinished checks cannot unstake",
+        "a check cannot close inside the 7-day window",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4",
+        "one independent check is counted",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "an overturned finding adds no independent check",
+        "a checker restores its stake"
+      ]
+    },
+    {
+      "rule": "A checker with unfinished checks cannot unstake",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a checker with unfinished checks cannot unstake",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "a checker restores its stake"
+      ]
+    },
+    {
+      "rule": "A claim carries a fee of at least 20 coins",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a fee under 20 coins is refused",
+        "a claim is posted and its fee is in escrow",
+        "a party to the claim cannot check it",
+        "an account with no stake cannot check",
+        "a claim cannot be withdrawn before 30 days",
+        "a finding needs evidence",
+        "a checker records a finding",
+        "a checker with unfinished checks cannot unstake",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "a checker restores its stake",
+        "a system that refuses to answer reads false",
+        "a check on a founder-linked claim adds no independent check",
+        "a statement that reads true goes in force",
+        "a report on a statement that still reads true pays 100 coins to the issuer",
+        "a statement cannot be closed during its term",
+        "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool",
+        "a statement cannot be reported after its term",
+        "a statement that stood through its term returns its bond",
+        "a checker with no unfinished checks takes its stake back"
+      ]
+    },
+    {
+      "rule": "A party to a claim cannot check it",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a party to the claim cannot check it",
+        "an account with no stake cannot check",
+        "a claim cannot be withdrawn before 30 days",
+        "a finding needs evidence",
+        "a checker records a finding",
+        "a checker with unfinished checks cannot unstake",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "a checker restores its stake"
+      ]
+    },
+    {
+      "rule": "A finding needs evidence",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a finding needs evidence",
+        "a checker records a finding"
+      ]
+    },
+    {
+      "rule": "A checker needs 10,000 coins at stake to record a finding",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a checker under 10,000 coins of stake cannot check",
+        "only the poster can withdraw a claim",
+        "an unchecked claim returns its fee after 30 days"
+      ]
+    },
+    {
+      "rule": "A check closes only after the 7-day window",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a check cannot close inside the 7-day window",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4"
+      ]
+    },
+    {
+      "rule": "A finding can be challenged only inside 7 days",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a finding cannot be challenged after 7 days"
+      ]
+    },
+    {
+      "rule": "A checker cannot challenge its own finding",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a checker cannot challenge its own finding"
+      ]
+    },
+    {
+      "rule": "An overturned finding cannot be challenged again",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "an overturned finding cannot be challenged again"
+      ]
+    },
+    {
+      "rule": "A false finding costs the checker half its stake",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "a checker under 10,000 coins of stake cannot check",
+        "a checker restores its stake",
+        "a system that refuses to answer reads false",
+        "only the poster can withdraw a claim",
+        "an unchecked claim returns its fee after 30 days",
+        "a checker with no unfinished checks takes its stake back"
+      ]
+    },
+    {
+      "rule": "A finding is judged against the system as it stood that day",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a finding true on its day stands after the system changes",
+        "a system that refuses to answer reads false"
+      ]
+    },
+    {
+      "rule": "A system that refuses to answer reads false",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a system that refuses to answer reads false",
+        "a checker with no unfinished checks takes its stake back"
+      ]
+    },
+    {
+      "rule": "A failed challenge pays its bond to the checker",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a failed challenge pays the 100-coin bond to the checker"
+      ]
+    },
+    {
+      "rule": "One fifth of each fee goes to the community pool",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "closing pays the checker 16 coins and the pool 4",
+        "the fee on an overturned finding pays the challenger"
+      ]
+    },
+    {
+      "rule": "The fee on an overturned finding pays the challenger",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "the fee on an overturned finding pays the challenger"
+      ]
+    },
+    {
+      "rule": "A founder-linked check is not counted as independent",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a check on a founder-linked claim adds no independent check"
+      ]
+    },
+    {
+      "rule": "An overturned finding is not counted as an independent check",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "an overturned finding adds no independent check"
+      ]
+    },
+    {
+      "rule": "A claim can be withdrawn only after 30 days",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a claim cannot be withdrawn before 30 days",
+        "a finding needs evidence",
+        "a checker records a finding",
+        "a checker with unfinished checks cannot unstake",
+        "a check cannot close inside the 7-day window",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4",
+        "one independent check is counted",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "an overturned finding adds no independent check",
+        "a checker restores its stake"
+      ]
+    },
+    {
+      "rule": "Only the poster can withdraw a claim",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "only the poster can withdraw a claim",
+        "an unchecked claim returns its fee after 30 days"
+      ]
+    },
+    {
+      "rule": "A sworn statement carries a bond of at least 10,000 coins",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a statement bond under 10,000 coins is refused",
+        "a sworn statement is posted and its bond is in escrow",
+        "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool",
+        "a statement cannot be reported after its term",
+        "a statement that stood through its term returns its bond"
+      ]
+    },
+    {
+      "rule": "A sworn statement covers 30 to 365 days",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a term under 30 days is refused",
+        "a term over 365 days is refused",
+        "a sworn statement is posted and its bond is in escrow",
+        "a statement cannot be reported after its term",
+        "a statement that stood through its term returns its bond"
+      ]
+    },
+    {
+      "rule": "A statement can be reported only during its term",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a statement cannot be reported after its term"
+      ]
+    },
+    {
+      "rule": "A report on a statement that still reads true pays 100 coins to the issuer",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a report on a statement that still reads true pays 100 coins to the issuer"
+      ]
+    },
+    {
+      "rule": "The reporter receives one fifth of a forfeited bond",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool"
+      ]
+    },
+    {
+      "rule": "A broken statement is marked broken",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a broken statement cannot be reported again"
+      ]
+    },
+    {
+      "rule": "A statement closes only after its term",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a statement cannot be closed during its term",
+        "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool"
+      ]
+    },
+    {
+      "rule": "A refused statement returns its bond",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a statement that reads false is refused and its bond returns",
+        "the registry balance equals stakes plus fees plus bonds"
+      ]
+    },
+    {
+      "rule": "Only the deployer names the coin",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "a stranger cannot name the coin",
+        "the deployer names the coin"
+      ]
+    },
+    {
+      "rule": "The coin is named once",
+      "compiled": true,
+      "caught": true,
+      "checksRun": 52,
+      "failingChecks": [
+        "the coin cannot be named twice",
+        "a checker registers with 10,000 coins",
+        "a claim is posted and its fee is in escrow",
+        "a party to the claim cannot check it",
+        "an account with no stake cannot check",
+        "a claim cannot be withdrawn before 30 days",
+        "a finding needs evidence",
+        "a checker records a finding",
+        "a checker with unfinished checks cannot unstake",
+        "a check cannot close inside the 7-day window",
+        "a checker cannot challenge its own finding",
+        "a failed challenge pays the 100-coin bond to the checker",
+        "closing pays the checker 16 coins and the pool 4",
+        "one independent check is counted",
+        "a false finding costs the checker half its stake",
+        "the challenger receives its bond back and 2,500 coins; the pool receives 2,500",
+        "an overturned finding cannot be challenged again",
+        "the fee on an overturned finding pays the challenger",
+        "an overturned finding adds no independent check",
+        "a checker under 10,000 coins of stake cannot check",
+        "a checker restores its stake",
+        "a finding true on its day stands after the system changes",
+        "a system that refuses to answer reads false",
+        "a finding cannot be challenged after 7 days",
+        "only the poster can withdraw a claim",
+        "an unchecked claim returns its fee after 30 days",
+        "a sworn statement is posted and its bond is in escrow",
+        "a statement that reads true goes in force",
+        "a report on a statement that still reads true pays 100 coins to the issuer",
+        "a statement cannot be closed during its term",
+        "a broken statement forfeits its bond: 2,000 coins to the reporter, 8,000 to the pool",
+        "a statement cannot be reported after its term",
+        "a statement that stood through its term returns its bond",
+        "a statement that reads false is refused and its bond returns",
+        "a checker with no unfinished checks takes its stake back",
+        "the pool only gained"
+      ]
+    }
+  ],
+  "earlierRuns": [
+    "November 13, 2026, 10:30 AM Eastern: 51 of 51 checks, before the owner veto was added to the coin and before the check on the 7-day challenge limit was added. Results at commit 85e0865.",
+    "Before that run: the first compile failed (the automatic reader for the full record exceeded the compiler's limit; replaced with recordOf), and one check was written wrong and corrected with the contract unchanged."
+  ],
+  "limits": [
+    "Each claim names the system that answers for it. A system outside this network needs proof of its past state, which is still a design question.",
+    "The dollar bond is left out, as the legal read recommends.",
+    "Nothing here has run on a public network."
+  ]
+}

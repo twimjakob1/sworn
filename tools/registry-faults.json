@@ -1,0 +1,152 @@
+[
+ {
+  "rule": "A checker posts at least 10,000 coins",
+  "find": "require(amount >= MIN_CHECKER_STAKE, \"stake too low\");",
+  "replace": ""
+ },
+ {
+  "rule": "A checker with unfinished checks cannot unstake",
+  "find": "require(openWork[msg.sender] == 0, \"unfinished checks\");",
+  "replace": ""
+ },
+ {
+  "rule": "A claim carries a fee of at least 20 coins",
+  "find": "require(customer != msg.sender, \"same party\");\n        require(fee >= MIN_CLAIM_FEE, \"fee too low\");",
+  "replace": "require(customer != msg.sender, \"same party\");"
+ },
+ {
+  "rule": "A party to a claim cannot check it",
+  "find": "require(msg.sender != r.poster && msg.sender != r.customer, \"party to the claim\");",
+  "replace": ""
+ },
+ {
+  "rule": "A finding needs evidence",
+  "find": "require(bytes(evidence).length > 0, \"evidence required\");",
+  "replace": ""
+ },
+ {
+  "rule": "A checker needs 10,000 coins at stake to record a finding",
+  "find": "require(isChecker[msg.sender] && stakeOf[msg.sender] >= MIN_CHECKER_STAKE, \"stake too low\");",
+  "replace": "require(isChecker[msg.sender], \"stake too low\");"
+ },
+ {
+  "rule": "A check closes only after the 7-day window",
+  "find": "require(block.timestamp >= r.attestedAt + CHALLENGE_PERIOD, \"window open\");",
+  "replace": ""
+ },
+ {
+  "rule": "A finding can be challenged only inside 7 days",
+  "find": "require(block.timestamp < r.attestedAt + CHALLENGE_PERIOD, \"window closed\");",
+  "replace": ""
+ },
+ {
+  "rule": "A checker cannot challenge its own finding",
+  "find": "require(msg.sender != r.checker, \"own finding\");",
+  "replace": ""
+ },
+ {
+  "rule": "An overturned finding cannot be challenged again",
+  "find": "require(!r.overturned, \"already overturned\");",
+  "replace": ""
+ },
+ {
+  "rule": "A false finding costs the checker half its stake",
+  "find": "uint256 penalty = (stake * SLASH_PCT) / 100;",
+  "replace": "uint256 penalty = 0;"
+ },
+ {
+  "rule": "A finding is judged against the system as it stood that day",
+  "find": "_read(r.system, r.attestedAt)",
+  "replace": "_read(r.system, block.timestamp)"
+ },
+ {
+  "rule": "A system that refuses to answer reads false",
+  "find": "return ok && out.length == 32 && abi.decode(out, (uint256)) == 1;",
+  "replace": "return !ok || (out.length == 32 && abi.decode(out, (uint256)) == 1);"
+ },
+ {
+  "rule": "A failed challenge pays its bond to the checker",
+  "find": "_pay(r.checker, CHALLENGE_BOND);",
+  "replace": "_pay(msg.sender, CHALLENGE_BOND);"
+ },
+ {
+  "rule": "One fifth of each fee goes to the community pool",
+  "find": "uint256 toPool = (r.fee * FEE_POOL_PCT) / 100;",
+  "replace": "uint256 toPool = 0;"
+ },
+ {
+  "rule": "The fee on an overturned finding pays the challenger",
+  "find": "address feePaidTo = r.overturned ? r.challenger : r.checker;",
+  "replace": "address feePaidTo = r.checker;"
+ },
+ {
+  "rule": "A founder-linked check is not counted as independent",
+  "find": "bool independent = !founderLinked[r.poster] && !founderLinked[r.customer] && !founderLinked[r.checker];",
+  "replace": "bool independent = true;"
+ },
+ {
+  "rule": "An overturned finding is not counted as an independent check",
+  "find": "if (independent && !r.overturned) independentChecks += 1;",
+  "replace": "if (independent) independentChecks += 1;"
+ },
+ {
+  "rule": "A claim can be withdrawn only after 30 days",
+  "find": "require(block.timestamp >= r.postedAt + OPEN_PERIOD, \"waiting period running\");",
+  "replace": ""
+ },
+ {
+  "rule": "Only the poster can withdraw a claim",
+  "find": "require(msg.sender == r.poster, \"poster only\");",
+  "replace": ""
+ },
+ {
+  "rule": "A sworn statement carries a bond of at least 10,000 coins",
+  "find": "require(bond >= MIN_STATEMENT_BOND, \"bond too low\");",
+  "replace": ""
+ },
+ {
+  "rule": "A sworn statement covers 30 to 365 days",
+  "find": "require(term >= MIN_TERM && term <= MAX_TERM, \"term out of range\");",
+  "replace": ""
+ },
+ {
+  "rule": "A statement can be reported only during its term",
+  "find": "require(block.timestamp <= r.endsAt, \"term ended\");",
+  "replace": ""
+ },
+ {
+  "rule": "A report on a statement that still reads true pays 100 coins to the issuer",
+  "find": "require(coin.transferFrom(msg.sender, r.poster, REPORT_BOND), \"transfer failed\");",
+  "replace": ""
+ },
+ {
+  "rule": "The reporter receives one fifth of a forfeited bond",
+  "find": "uint256 toReporter = (r.bond * REPORTER_PCT) / 100;",
+  "replace": "uint256 toReporter = r.bond;"
+ },
+ {
+  "rule": "A broken statement is marked broken",
+  "find": "r.state = State.Broken;",
+  "replace": ""
+ },
+ {
+  "rule": "A statement closes only after its term",
+  "find": "require(block.timestamp > r.endsAt, \"term running\");",
+  "replace": ""
+ },
+ {
+  "rule": "A refused statement returns its bond",
+  "find": "_pay(r.poster, r.bond);\n            emit StatementChecked(id, false, 0",
+  "replace": "emit StatementChecked(id, false, 0"
+ },
+ {
+  "rule": "Only the deployer names the coin",
+  "find": "require(msg.sender == binder, \"deployer only\");",
+  "replace": ""
+ },
+ {
+  "rule": "The coin is named once",
+  "find": "require(address(coin) == address(0), \"already bound\");",
+  "replace": ""
+ }
+]

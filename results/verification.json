@@ -1,0 +1,266 @@
+{
+  "ranAt": "2026-11-13T19:05:48.521Z",
+  "node": "v22.23.4",
+  "baseline": {
+    "status": 0,
+    "tests": 62,
+    "pass": 62,
+    "fail": 0
+  },
+  "faultsInjected": 42,
+  "faultsCaught": 42,
+  "results": [
+    {
+      "rule": "An account cannot spend more than it has",
+      "file": "coin.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Only the key of an account can move its coins",
+      "file": "coin.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The coin has no function that creates coins",
+      "file": "coin.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The founder vault observes the 12-month lock and the monthly calendar",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The founder vault requires the usage milestone",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "The founder vault waits out the 30-day notice",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A vetoed slice stays unpaid",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Founder-linked accounts have no vote on a founder release",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Votes weigh by the balance on the notice day",
+      "file": "vault.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Founder-linked checks stay out of the milestone count",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 3
+    },
+    {
+      "rule": "The bond goes to the customer when the work was not done",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "A false finding costs the checker stake",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "A challenge is accepted only inside the window",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A party to a claim cannot check it",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "A checker with unfinished checks cannot withdraw its stake",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Only the key of the operator posts its claim",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A claim carries a fee of at least the minimum",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A claim that cannot pay its fee moves no dollars",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The fee leaves the poster when the claim is posted",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 12
+    },
+    {
+      "rule": "One fifth of every fee goes to the community pool",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 7
+    },
+    {
+      "rule": "An overturned finding pays the fee to the challenger",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "An overturned finding cannot be challenged again",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A claim waits 30 days for a checker before it can be withdrawn",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "Only the operator can withdraw its claim",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The fee returns to the poster when a claim is withdrawn",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "A finding is judged against the system as it stood on the day of the finding",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A sworn statement carries a bond of at least the minimum",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A sworn statement covers 30 to 365 days",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "An issuer without the coins for the bond and the fee cannot post",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The bond and the fee leave the issuer when the statement is posted",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 11
+    },
+    {
+      "rule": "Only the key of the issuer posts its sworn statement",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A statement goes in force only when its first check reads true",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "A report is accepted only during the term",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A reporter puts up the report bond",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "A statement that still reads true stays in force",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 3
+    },
+    {
+      "rule": "One fifth of a forfeited bond pays the reporter and the rest goes to the community pool",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 2
+    },
+    {
+      "rule": "The bond returns only after the term",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The bond returns when an untaken statement is withdrawn",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Reports and closings apply to sworn statements only",
+      "file": "registry.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "Each receipt is linked to the one before it",
+      "file": "receipts.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The report card flags a coin whose accounts can be frozen",
+      "file": "reportcard.js",
+      "caught": true,
+      "failingTests": 1
+    },
+    {
+      "rule": "The report card reports unread facts as unread",
+      "file": "reportcard.js",
+      "caught": true,
+      "failingTests": 1
+    }
+  ]
+}
