@@ -1,0 +1,33 @@
+{
+  "network": "Sepolia, Ethereum's public test network (chain id 11155111). Its coins have no value.",
+  "deployedOn": "2026-11-13",
+  "deployer": "0x25521dCE46BCEBA633F8B57bBeEF9f729178673C",
+  "sourceCommit": "a7b80cf",
+  "compiler": "Solidity 0.8.38+commit.1835d247, optimizer on, 200 runs",
+  "contracts": {
+    "PracticePool": { "address": "0x62924Aa750469190080C0809b060B63eA508E8de", "file": "contracts/PracticePool.sol", "tx": "0x4c0752ef33fed906e00771b8d83e83f699f6cd0981c4323dbf69b55f9efff54e", "block": 12128113 },
+    "Registry": { "address": "0xbB59CA5A562b02FB7E213d160982c9b5d0942441", "file": "contracts/Registry.sol", "tx": "0x2984f9d798dc6ad139900f112c8380f1f49a35e9e497a470670c7e5627bed2c7", "block": 12128141 },
+    "Coin": { "address": "0x284F91dB477C3Be70B67119c9791BF05cB3c46AA", "file": "contracts/Coin.sol", "tx": "0x33b78f8c1f3e1945dee7e7986a4492a046046ca078554451a2853d231afd8799", "block": 12128146 },
+    "FounderVault": { "address": "0x95C4e2c9Ad822A2727c4036995BA21929eA771CD", "file": "contracts/Coin.sol", "createdBy": "Coin, in the same transaction" }
+  },
+  "bind": { "call": "Registry.bind(Coin)", "tx": "0x060596d23f8a3d26b8166de6950141ebbe4ce4d0ba6d8194bd93fb4792ac4e7a", "block": 12128152 },
+  "constructorArguments": {
+    "Registry": { "pool": "0x62924Aa750469190080C0809b060B63eA508E8de", "founderLinked": ["0x25521dCE46BCEBA633F8B57bBeEF9f729178673C"] },
+    "Coin": { "usage": "0xbB59CA5A562b02FB7E213d160982c9b5d0942441", "founder": "0x25521dCE46BCEBA633F8B57bBeEF9f729178673C", "communityPool": "0x62924Aa750469190080C0809b060B63eA508E8de", "distribution": "0x25521dCE46BCEBA633F8B57bBeEF9f729178673C" }
+  },
+  "readBack": {
+    "name": "Sworn",
+    "symbol": "SWORN",
+    "totalSupply": "1,000,000,000",
+    "founderVault": "100,000,000",
+    "communityPool": "400,000,000",
+    "distributionAccount": "500,000,000",
+    "registryCoin": "0x284F91dB477C3Be70B67119c9791BF05cB3c46AA",
+    "vaultReadsUsageFrom": "0xbB59CA5A562b02FB7E213d160982c9b5d0942441"
+  },
+  "sourceVerification": "Sourcify, exact match of creation and runtime code for all four contracts, November 13, 2026",
+  "notes": [
+    "On the test network the founder wallet also stands in for the free-distribution account, so practice coins can be given to testers. On a public launch the distribution account will be a contract with its own published rule.",
+    "The community pool is a contract with no functions. Coins that reach it stay."
+  ]
+}

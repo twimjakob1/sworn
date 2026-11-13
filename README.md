@@ -9,7 +9,20 @@ The first claims Sworn checks are promises that the issuers of other coins make 
 - How to check the work yourself: [docs/CHECK-IT-YOURSELF.md](docs/CHECK-IT-YOURSELF.md)
 - How to report a fault: [SECURITY.md](SECURITY.md)
 
-**Standing.** Sworn is in testing. The rules run in a tested model and as blockchain code on a practice chain. The coin trades nowhere. Any coin offered for sale under the Sworn name today is a counterfeit, and the project sells no coins.
+**Standing.** Sworn is in testing. The rules run in a tested model and as blockchain code on Sepolia, Ethereum's public test network. The coin trades nowhere. Any coin offered for sale under the Sworn name today is a counterfeit, and the project sells no coins.
+
+## Live on the Practice Network
+
+Sworn runs on Sepolia, Ethereum's public test network, where coins have no value. Each contract's source is verified as an exact match on Sourcify.
+
+| Contract | Address |
+| --- | --- |
+| Coin (SWORN) | [0x284F91dB477C3Be70B67119c9791BF05cB3c46AA](https://sepolia.etherscan.io/address/0x284F91dB477C3Be70B67119c9791BF05cB3c46AA) |
+| Founder vault | [0x95C4e2c9Ad822A2727c4036995BA21929eA771CD](https://sepolia.etherscan.io/address/0x95C4e2c9Ad822A2727c4036995BA21929eA771CD) |
+| Checker registry | [0xbB59CA5A562b02FB7E213d160982c9b5d0942441](https://sepolia.etherscan.io/address/0xbB59CA5A562b02FB7E213d160982c9b5d0942441) |
+| Community pool | [0x62924Aa750469190080C0809b060B63eA508E8de](https://sepolia.etherscan.io/address/0x62924Aa750469190080C0809b060B63eA508E8de) |
+
+Transactions, constructor arguments and the values read back after deployment are in [deployments/sepolia.json](deployments/sepolia.json).
 
 ## What Is Here
 
@@ -49,7 +62,7 @@ The blockchain code runs in a browser page. `tools/practice-chain.browser.js` an
 ## What Has Not Been Done
 
 - No one outside the project has reviewed this code.
-- The code has not run on a public network.
+- The code runs on the public test network only. It has not run on Ethereum's main network.
 - The registry will have no owner key, so a fault found after launch stays. Starting limits on bond size are unwritten.
 - The rule for the free distribution is unwritten.
 - A dispute is settled by reading the system again, so Sworn covers only systems anyone can read. Work inside a private system has no solution in this build.
