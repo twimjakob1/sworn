@@ -254,5 +254,13 @@
     "result": "The state's record shows VITALEDGE, LLC, active, formed in Tennessee on January 9, 2025, with ASSUMED NAME: SWORN under other names used.",
     "state": "Live",
     "evidence": "Tennessee Secretary of State business entity search, control number 001611733"
+  },
+  {
+    "date": "2026-11-13",
+    "claim": "The SWORN word mark is filed with the USPTO for VITALEDGE, LLC (DBA SWORN), Class 36, intent to use.",
+    "check": "USPTO Trademark Center confirmation page after payment, 2:17 PM Eastern.",
+    "result": "Serial number 50216586. Services: electronic transfer of virtual currencies; providing financial information in the field of virtual currency; cryptocurrency payment processing. Fee $350, no surcharges.",
+    "state": "Filed",
+    "evidence": "USPTO serial 50216586; docs/trademark-filing.md"
   }
 ]
