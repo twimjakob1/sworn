@@ -15,7 +15,7 @@ The first claims Sworn checks are promises that the issuers of other coins make 
 
 | Folder | Contents |
 | --- | --- |
-| `contracts/` | The blockchain code. `Coin.sol` is the coin and the founder vault. `Registry.sol` is the checker registry and sworn statements. |
+| `contracts/` | The blockchain code. `Coin.sol` is the coin and the founder vault. `Registry.sol` is the checker registry and sworn statements. `PracticePool.sol` is the practice network's community pool: a contract with no functions. |
 | `model/` | The working model the rules were first written in: the coin, the founder vault, the registry and the ledger. `params.js` states every number in the rules. |
 | `test/` | The automated tests of the model. |
 | `tools/` | The runs that break each rule on purpose, two runs that attack the rules with cooperating accounts, the practice-chain scripts, and the ledger check. |
@@ -60,4 +60,4 @@ Sworn is a registered name of VitalEdge, LLC, a Tennessee company. The founder i
 
 ## Rights
 
-© 2026 VitalEdge, LLC. This code is published so that anyone can read it, run it and test it. No license to reuse it has been granted yet. SWORN and the Sworn mark are trademarks of VitalEdge, LLC.
+© 2026 VitalEdge, LLC. The files in `contracts/` carry the MIT license named at the top of each file. Everything else is published so that anyone can read it, run it and test it; no license to reuse it has been granted yet. SWORN and the Sworn mark are trademarks of VitalEdge, LLC.
